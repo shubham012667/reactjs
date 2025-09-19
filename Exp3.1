@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+    .products {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      width: 200px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Products List</h2>
+  <div class="products" id="productList"></div>
+
+  <script>
+    // Products data (array of objects)
+    const products = [
+      { name: "Wireless Mouse", price: 25.99, status: "In Stock" },
+      { name: "Keyboard", price: 45.5, status: "Out of Stock" },
+      { name: "Monitor", price: 199.99, status: "In Stock" }
+    ];
+
+    const productList = document.getElementById("productList");
+
+    // Loop through products and create cards
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3>${product.name}</h3>
+        <p>Price: $${product.price}</p>
+        <p>Status: ${product.status}</p>
+      `;
+
+      productList.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
